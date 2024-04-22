@@ -2,6 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import InformationContainer from "../../Information/InformationContainer/InformationContainer";
 import FieldContainer from "../../Field/FieldContainer/FieldContainer";
+import PropTypes from "prop-types";
+
+AppLayout.propTypes = {
+	field: PropTypes.array,
+	setField: PropTypes.func,
+	currentPlayer: PropTypes.string,
+	setCurrentPlayer: PropTypes.func,
+	isDraw: PropTypes.bool,
+	isGameEnded: PropTypes.bool,
+	setIsDraw: PropTypes.func,
+	setIsGameEnded: PropTypes.func,
+	startOver: PropTypes.func,
+};
 
 function AppLayout({
 	field,

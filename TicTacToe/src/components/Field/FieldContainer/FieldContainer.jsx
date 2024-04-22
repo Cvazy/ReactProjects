@@ -1,5 +1,17 @@
 import React, { useEffect } from "react";
 import FieldLayout from "../FieldLayout/FieldLayout";
+import PropTypes from "prop-types";
+
+FieldContainer.propTypes = {
+	field: PropTypes.array,
+	setField: PropTypes.func,
+	currentPlayer: PropTypes.string,
+	setCurrentPlayer: PropTypes.func,
+	isDraw: PropTypes.bool,
+	isGameEnded: PropTypes.bool,
+	setIsDraw: PropTypes.func,
+	setIsGameEnded: PropTypes.func,
+};
 
 function FieldContainer({
 	field,
@@ -21,7 +33,7 @@ function FieldContainer({
 		setCurrentPlayer(currentPlayer === "X" ? "0" : "X");
 	}
 
-	function checkWin(field) {
+	useEffect(() => {
 		const WIN_PATTERNS = [
 			[0, 1, 2],
 			[3, 4, 5],
@@ -41,21 +53,21 @@ function FieldContainer({
 			} else if (field[a] === "0" && field[b] === "0" && field[c] === "0") {
 				setIsGameEnded(true);
 				setCurrentPlayer("0");
-			} else {
-				if (
-					field.every((el) => {
-						return el !== "";
-					})
-				) {
-					setIsDraw(true);
-					setIsGameEnded(true);
-				}
+			} else if (
+				field[a] !== "X" &&
+				field[b] !== "X" &&
+				field[c] !== "X" &&
+				field[a] !== "0" &&
+				field[b] !== "0" &&
+				field[c] !== "0" &&
+				field.every((el) => {
+					return el !== "";
+				})
+			) {
+				setIsDraw(true);
+				setIsGameEnded(true);
 			}
 		}
-	}
-
-	useEffect(() => {
-		checkWin(field);
 	});
 
 	return (
