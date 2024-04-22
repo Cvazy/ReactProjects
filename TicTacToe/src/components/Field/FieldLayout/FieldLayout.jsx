@@ -1,5 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
+FieldLayout.propTypes = {
+	field: PropTypes.array,
+	isDraw: PropTypes.bool,
+	isGameEnded: PropTypes.bool,
+	setCell: PropTypes.func,
+};
 
 function FieldLayout({ field, setCell, isGameEnded, isDraw }) {
 	const GameWrapper = styled.div`
