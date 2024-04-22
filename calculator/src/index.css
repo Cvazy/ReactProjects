@@ -1,0 +1,14 @@
+body {
+	margin: 0;
+}
+
+* {
+	transition: .3s;
+	box-sizing: border-box;
+}
+
+button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
