@@ -1,10 +1,28 @@
 import styles from "./app.module.css";
 import { useState } from "react";
+import { type } from "@testing-library/user-event/dist/type";
 
 export const App = () => {
 	const NUMS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 	const [expression, setExpression] = useState("");
 	const [calculatorState, setCalculatorState] = useState("#5b82c9");
+
+	function calculateExpression(exp) {
+		let numbers = expression.split(/[+\-]/);
+		let operators = expression.replace(/[0-9]/g, "").split("");
+
+		let result = parseInt(numbers[0]);
+
+		for (let i = 0; i < operators.length; i++) {
+			if (operators[i] === "+") {
+				result += parseInt(numbers[i + 1]);
+			} else if (operators[i] === "-") {
+				result -= parseInt(numbers[i + 1]);
+			}
+		}
+
+		return result.toString();
+	}
 
 	function onClickNumber(number) {
 		setExpression((prev) => prev + number);
@@ -31,8 +49,8 @@ export const App = () => {
 		setCalculatorState("#5b82c9");
 	}
 
-	function calculateExpression() {
-		setExpression((prev) => eval(prev).toString());
+	function setCalculateExpression() {
+		setExpression((prev) => calculateExpression(prev));
 		setCalculatorState("#2b9124");
 	}
 
@@ -92,7 +110,7 @@ export const App = () => {
 
 								<button
 									className={styles.actionButton}
-									onClick={calculateExpression}
+									onClick={setCalculateExpression}
 								>
 									=
 								</button>
