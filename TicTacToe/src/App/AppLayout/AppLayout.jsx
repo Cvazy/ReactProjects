@@ -1,31 +1,26 @@
-import React from "react";
 import styled from "styled-components";
-import InformationContainer from "../../Information/InformationContainer/InformationContainer";
-import FieldContainer from "../../Field/FieldContainer/FieldContainer";
+import InformationContainer from "../../components/Information/InformationContainer/InformationContainer";
+import FieldContainer from "../../components/Field/FieldContainer/FieldContainer";
 import PropTypes from "prop-types";
 
 AppLayout.propTypes = {
 	field: PropTypes.array,
-	setField: PropTypes.func,
 	currentPlayer: PropTypes.string,
-	setCurrentPlayer: PropTypes.func,
 	isDraw: PropTypes.bool,
 	isGameEnded: PropTypes.bool,
 	setIsDraw: PropTypes.func,
-	setIsGameEnded: PropTypes.func,
 	startOver: PropTypes.func,
+	setCell: PropTypes.func,
 };
 
 function AppLayout({
 	field,
-	setField,
 	currentPlayer,
-	setCurrentPlayer,
 	isDraw,
 	isGameEnded,
 	setIsDraw,
-	setIsGameEnded,
 	startOver,
+	setCell,
 }) {
 	const MainWrapper = styled.div`
 		display: flex;
@@ -79,12 +74,9 @@ function AppLayout({
 
 				<FieldContainer
 					field={field}
-					setField={setField}
-					currentPlayer={currentPlayer}
-					setCurrentPlayer={setCurrentPlayer}
-					setIsGameEnded={setIsGameEnded}
 					setIsDraw={setIsDraw}
 					isGameEnded={isGameEnded}
+					setCell={setCell}
 				/>
 			</Game>
 		</MainWrapper>
