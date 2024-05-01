@@ -1,0 +1,11 @@
+body {
+	margin: 0;
+	background: #CAFAFE;
+}
+
+* {
+	transition: .3s;
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
+	scroll-behavior: smooth;
+}
