@@ -1,0 +1,24 @@
+body {
+	margin: 0;
+	background: #CAFAFE;
+}
+
+* {
+	transition: .3s;
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
+	scroll-behavior: smooth;
+}
+
+button {
+	padding: 0;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}
+
+input[readonly] {
+	cursor: pointer;
+}
