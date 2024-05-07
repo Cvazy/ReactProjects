@@ -8,12 +8,14 @@ import {
 	UseRequestDeleteToDoItem,
 	RequestUpdateToDoItem,
 } from "./hooks";
+import ModalAddTask from "./components/ModalAddTask";
 
 export const App = () => {
 	const [openSearchingBlock, setOpenSearchingBlock] = useState(false);
 	const [refreshToDoListFlag, setRefreshToDoListFlag] = useState(false);
 	const [searchValue, setSearchValue] = useState("");
 	const [sortOrder, setSortOrder] = useState("AtoZ");
+	const [modalVisible, setModalVisible] = useState(false);
 
 	const refreshToDoItemsList = () =>
 		setRefreshToDoListFlag(!refreshToDoListFlag);
@@ -41,12 +43,11 @@ export const App = () => {
 				<NavigationBlock
 					openSearchingBlock={openSearchingBlock}
 					setOpenSearchingBlock={setOpenSearchingBlock}
-					isCreating={isCreating}
-					addNewToDoItem={addNewToDoItem}
 					setSearchValue={setSearchValue}
 					searchValue={searchValue}
 					sortOrder={sortOrder}
 					setSortOrder={setSortOrder}
+					setModalVisible={setModalVisible}
 				/>
 
 				<ToDoListBlock
@@ -56,6 +57,14 @@ export const App = () => {
 					deleteToDoItem={deleteToDoItem}
 					isDeleting={isDeleting}
 				/>
+
+				{modalVisible && (
+					<ModalAddTask
+						setModalVisible={setModalVisible}
+						isCreating={isCreating}
+						addNewToDoItem={addNewToDoItem}
+					/>
+				)}
 			</LayoutWrapper>
 		</Layout>
 	);

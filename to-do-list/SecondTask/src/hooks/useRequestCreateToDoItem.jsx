@@ -4,14 +4,14 @@ import { serverUrl } from "../constants/serverUrl";
 export function UseRequestCreateToDoItem(refreshToDoItemsList) {
 	const [isCreating, setIsCreating] = useState(false);
 
-	const addNewToDoItem = () => {
+	const addNewToDoItem = (title) => {
 		setIsCreating(true);
 
 		fetch(serverUrl, {
 			method: "POST",
 			headers: { "Content-Type": "application/json; charset=utf-8" },
 			body: JSON.stringify({
-				title: "New note title",
+				title: title,
 			}),
 		})
 			.then((rawResponse) => rawResponse.json())

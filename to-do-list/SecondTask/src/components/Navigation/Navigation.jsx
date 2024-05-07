@@ -3,17 +3,17 @@ import Searching from "../Searching/Searching";
 import OpenSearch from "./OpenSearch";
 import SortedButton from "./SortedButton";
 import { ActionsWrapper } from "../../styled/ToDoList";
-import AddNewItem from "./AddNewItem";
+import ToDoActionButton from "../ToDoActionButton/ToDoActionButton";
+import React from "react";
 
 function NavigationBlock({
 	openSearchingBlock,
 	setOpenSearchingBlock,
-	isCreating,
-	addNewToDoItem,
 	searchValue,
 	setSearchValue,
 	sortOrder,
 	setSortOrder,
+	setModalVisible,
 }) {
 	return (
 		<Navigation>
@@ -21,7 +21,10 @@ function NavigationBlock({
 				<Title>To Do Application</Title>
 
 				<ActionsWrapper>
-					<AddNewItem isCreating={isCreating} addNewToDoItem={addNewToDoItem} />
+					<ToDoActionButton
+						clickAction={() => setModalVisible(true)}
+						src={"/assets/images/add.svg"}
+					/>
 
 					<SortedButton sortOrder={sortOrder} setSortOrder={setSortOrder} />
 
