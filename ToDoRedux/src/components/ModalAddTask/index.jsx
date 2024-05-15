@@ -22,6 +22,7 @@ function ModalAddTask() {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		dispatch(createToDoItems(taskName));
+
 		dispatch({
 			type: "SET_MODAL_VISIBLE",
 			payload: false,

@@ -1,5 +1,4 @@
 import { serverUrl } from "../constants/serverUrl";
-import { getToDoItems } from "./getToDoItems";
 
 const fetchCreateToDoItems = (title) => {
 	return fetch(serverUrl, {
@@ -20,13 +19,16 @@ export const createToDoItems = (title) => (dispatch) => {
 	fetchCreateToDoItems(title)
 		.then((response) => {
 			console.log("Добавлена новая заметка, ответ сервера:", response);
+
+			dispatch({
+				type: "CREATE_NEW_TASK",
+				payload: response,
+			});
 		})
 		.finally(() => {
 			dispatch({
 				type: "SET_IS_CREATING",
 				payload: false,
 			});
-
-			dispatch(getToDoItems);
 		});
 };

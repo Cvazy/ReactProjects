@@ -18,6 +18,22 @@ export const reducer = (state = initialState, action) => {
 			};
 		}
 
+		case "DELETE_TASK": {
+			return {
+				...state,
+				toDoItems: [...state.toDoItems].filter(({ id }) => {
+					return id !== action.payload;
+				}),
+			};
+		}
+
+		case "CREATE_NEW_TASK": {
+			return {
+				...state,
+				toDoItems: [...state.toDoItems, action.payload],
+			};
+		}
+
 		case "SET_LOADING": {
 			return {
 				...state,
