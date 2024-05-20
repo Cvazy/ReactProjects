@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	margin: 0;
+	background: papayawhip;
+}
+
+* {
+	transition: .3s;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
