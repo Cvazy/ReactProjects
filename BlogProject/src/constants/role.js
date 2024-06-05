@@ -1,0 +1,10 @@
+export const ROLE = {
+	ADMIN: 0,
+	MODERATOR: 1,
+	READER: 2,
+	GUEST: 3,
+	ADMIN_STR: "0",
+	MODERATOR_STR: "1",
+	READER_STR: "2",
+	GUEST_STR: "3",
+};

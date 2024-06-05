@@ -1,0 +1,48 @@
+@import "assets/css/font-awesome.min.css";
+
+body {
+	margin: 0;
+	background-color: #405060;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+}
+
+* {
+	transition: .3s all;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+	margin: 0;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+}
+
+.w-full {
+	width: 100% !important;
+}
